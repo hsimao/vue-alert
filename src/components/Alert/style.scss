@@ -1,0 +1,71 @@
+$colorPrimary: #3498db;
+$colorGray: #34495e;
+
+.ms-alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(55, 55, 55, 0.6);
+  z-index: 100;
+
+  &__content {
+    box-sizing: border-box;
+    width: 400px;
+    padding: 30px 40px;
+    transition: all 0.3s;
+    border-radius: 6px;
+    background-color: #fff;
+  }
+
+  &__btn {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 10px 20px 0 rgba(black, 0.125);
+    background-color: $colorPrimary;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .ms-alert__btn + .ms-alert__btn {
+    margin-left: 15px;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .ms-alert__content {
+    width: 100%;
+    margin: 0 20px;
+    padding: 10px 20px;
+  }
+}
+
+// 轉場動畫
+
+.ms-transition-enter,
+.ms-transition-leave-to {
+  opacity: 0;
+}
+
+.ms-transition-enter-to,
+.ms-transition-leave {
+  opacity: 1;
+}
+
+.ms-transition-enter-active,
+.ms-transition-leave-active {
+  transition: opacity 0.3s;
+}
+
+.ms-transition-enter .ms-alert__content,
+.ms-transition-leave .ms-alert__content {
+  transform: translateY(-10%);
+}
